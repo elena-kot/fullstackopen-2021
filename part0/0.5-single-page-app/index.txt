@@ -1,0 +1,21 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->>browser: HTML
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->>browser: main.css
+browser->server: https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->>browser: spa.js
+
+note over browser:
+browser executes spa.js 
+which requests JSON data from server 
+end note
+
+browser->>server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->>browser: JSON [..., {"content": "ping","date": "2021-12-25T18:58:17.622Z"}]
+
+note over browser:
+browser executes the event handler
+which creates a list of posts 
+and inserts it into div.#notes
+end note

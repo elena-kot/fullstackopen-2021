@@ -1,0 +1,7 @@
+note over browser:
+browser executes the event handler of the form
+which inserts the message into the list
+end note
+
+browser-->>server: <<create>> \n HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->>browser: JSON {"message": "note created"}
